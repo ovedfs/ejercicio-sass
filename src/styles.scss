@@ -1,0 +1,65 @@
+@import 'config';
+@import 'utils';
+@import 'button';
+
+* {
+  @include reset-pm();
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $brightsun-color;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: $dark-color;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: size(6);
+}
+
+h3 {
+  font-weight: lighter;
+  font-size: size(3);
+}
+
+.container {
+  background-color: white;
+  margin: 100px auto;
+  width: 1280px;
+  padding: 50px;
+  background-image: url("/bg.jpg");
+  background-size: 100% 100%;
+}
+
+ul {
+  @include reset-pm();
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  li {
+    a {
+      @include btn(
+        $bg-color: $light-color, 
+        $text-color: $font-color, 
+        $isBold: 'true'
+      );
+      
+      &:hover {
+        @include btn($dark-color, $light-color, 'false');
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+}
+
+header {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

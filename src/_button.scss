@@ -1,0 +1,29 @@
+@mixin btn($bg-color, $text-color, $isBold) {
+  background-color: $bg-color;
+  color: $text-color;
+  border-radius: 50px;
+  padding: 20px 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @if($isBold == 'true') {
+    font-weight: bolder;
+  }
+}
+
+.btn {
+  &.btn-cta {
+    @include btn($brightsun-color, $dark-color, 'true');
+    &:hover {
+      @include btn($dark-color, $light-color, 'true');
+      box-shadow: $box-shadow;
+    }
+
+    &:hover {
+      @include btn($light-color, $dark-color, 'true');
+      box-shadow: $box-shadow;
+    }
+  }
+}
